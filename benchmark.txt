@@ -1,0 +1,9 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/qsliu2017/wrong-usage-of-unsafe
+BenchmarkColumnsAt/BadAt1-12         	515961390	         2.177 ns/op	       0 B/op	       0 allocs/op
+BenchmarkColumnsAt/BadAt2-12         	577873116	         2.114 ns/op	       0 B/op	       0 allocs/op
+BenchmarkColumnsAt/GoodAt1-12        	431724818	         2.725 ns/op	       0 B/op	       0 allocs/op
+BenchmarkColumnsAt/GoodAt2-12        	479191124	         2.513 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/qsliu2017/wrong-usage-of-unsafe	5.804s
