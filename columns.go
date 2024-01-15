@@ -37,3 +37,8 @@ func (c *Columns) GoodAt2(i int) Column {
 	a := [SizeColumn]byte(c.data[i*SizeColumn : (i+1)*SizeColumn])
 	return *(*Column)(unsafe.Pointer(&a))
 }
+
+func (c *Columns) GoodAt3(i int) Column {
+	p := (*[SizeColumn]byte)(c.data[i*SizeColumn : (i+1)*SizeColumn])
+	return *(*Column)(unsafe.Pointer(p))
+}

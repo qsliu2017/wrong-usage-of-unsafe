@@ -42,3 +42,13 @@ func BenchmarkGoodAt2(b *testing.B) {
 		_ = cols.GoodAt2(i % n)
 	}
 }
+
+func BenchmarkGoodAt3(b *testing.B) {
+	n := 1000
+	cols := columns.New(n)
+	b.StartTimer()
+	defer b.StopTimer()
+	for i := 0; i < b.N; i++ {
+		_ = cols.GoodAt3(i % n)
+	}
+}

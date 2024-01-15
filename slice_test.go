@@ -42,3 +42,17 @@ func TestArrayToSlice(t *testing.T) {
 		t.Errorf("&a[0]=%p != &s[0]=%p", &a[0], &s[0]) // ok: conversion from array to slice reuses array
 	}
 }
+
+func TestSliceToArrayPtr(t *testing.T) {
+	s := []int{0, 1, 2, 3, 4, 5, 6}
+	p := (*[5]int)(s[2:])
+	if unsafe.Pointer(&s[2]) != unsafe.Pointer(&p[0]) {
+		t.Errorf("&a[2]=%p != &p[0]=%p", &s[2], &p[0]) // ok: conversion from slice to array pointer reuses array
+	}
+	defer func() {
+		if err := recover(); err != nil {
+			t.Errorf("panic: %v", err) // fail: conversion from slice to array pointer panics if slice length is too short
+		}
+	}()
+	_ = (*[6]int)(s[2:]) // panic: runtime error: slice bounds out of range
+}

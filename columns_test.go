@@ -17,6 +17,7 @@ func TestColumnsAt(t *testing.T) {
 		{cols.BadAt2, "BadAt2"},
 		{cols.GoodAt1, "GoodAt1"},
 		{cols.GoodAt2, "GoodAt2"},
+		{cols.GoodAt3, "GoodAt3"},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			// re-initialize underlying data
